@@ -2,8 +2,9 @@
 
     
     import { onMount } from 'svelte';
-    import { Calculator } from   '../lib/calculator'
-    import { create_chart } from '../lib/charts'
+    import { Calculator } from   '../lib/calculator';
+    import { create_chart } from '../lib/charts';
+    import Slider from '../components/Slider.svelte'
 
     let result = new Calculator('asdf');
     onMount(() => {
@@ -17,6 +18,8 @@
 {result.get_user()}
 {result.my_func(5)}
 <svg></svg>
+
+<Slider min={0} max={100} value={50}></Slider>
 
 <style>
     svg {

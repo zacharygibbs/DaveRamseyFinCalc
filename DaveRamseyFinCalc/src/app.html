@@ -1,20 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- SMUI Styles -->
-		<link rel="stylesheet" href="/smui.css" media="(prefers-color-scheme: light)" />
-		<link
-		rel="stylesheet"
-		href="/smui-dark.css"
-		media="screen and (prefers-color-scheme: dark)"
-		/>
-		<!-- End SMUI Styles -->
+		<link rel='stylesheet' href='/css/w3.css'>
+		<link href="/css/fontawesome.css" rel="stylesheet">
+		<link href="/css/brands.css" rel="stylesheet">
+		<link href="/css/solid.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover">
+	<body data-sveltekit-preload-data="hover" class="w3-light-grey w3-content" style="max-width:1600px">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
