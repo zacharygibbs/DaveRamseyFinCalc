@@ -12,3 +12,8 @@ export interface CalculatorResults {
 export interface DebtAssetValues {
     [key: string]: any
 };
+
+export interface CalculatorParams {
+    name: string,
+    [key: string]: any
+};
