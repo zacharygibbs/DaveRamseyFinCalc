@@ -10,9 +10,16 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"prepare": "npm run smui-theme-light && npm run smui-theme-dark",
+		"smui-theme-light": "smui-theme compile build/smui.css -i src/theme",
+		"smui-theme-dark": "smui-theme compile build/smui-dark.css -i src/theme/dark"
 	},
 	"devDependencies": {
+		"@fortawesome/fontawesome-free": "^6.4.0",
+		"@material/typography": "^14.0.0",
+		"@smui/button": "^7.0.0",
+		"@smui/icon-button": "^7.0.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-static": "^3.0.2",
 		"@sveltejs/kit": "^2.0.0",
@@ -25,16 +32,19 @@
 		"globals": "^15.0.0",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
-		"svelte": "^5.0.0-next.1",
+		"smui-theme": "^7.0.0",
+		"svelte": "^4.0.0",
 		"svelte-check": "^3.6.0",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.0.0-alpha.20",
 		"vite": "^5.0.3",
-		"vitest": "^2.0.0",
-		"@fortawesome/fontawesome-free": "^6.4.0"
+		"vitest": "^2.0.0"
 	},
 	"type": "module",
 	"dependencies": {
-		"d3": "^7.9.0"
+		"@material/dom": "^14.0.0",
+		"@mdi/js": "^7.4.47",
+		"d3": "^7.9.0",
+		"svelte-material-ui": "^7.0.0"
 	}
 }
