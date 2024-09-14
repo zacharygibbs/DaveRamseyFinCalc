@@ -4,14 +4,10 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<!-- SMUI Styles -->
+		<link rel="stylesheet" href="css/svelte.css" media="(prefers-color-scheme: light)" />
 		<link
 			rel="stylesheet"
-			href="node_modules/svelte-material-ui/themes/svelte.css"
-			media="(prefers-color-scheme: light)"
-		/>
-		<link
-			rel="stylesheet"
-			href="node_modules/svelte-material-ui/themes/svelte-dark.css"
+			href="css/svelte-dark.css"
 			media="screen and (prefers-color-scheme: dark)"
 		/>
 		<!-- Hint where we get fonts from. -->
@@ -39,6 +35,3 @@
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
-<style>
-	@import './_Typography.scss';
-</style>
