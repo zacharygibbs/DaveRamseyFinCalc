@@ -100,8 +100,13 @@ export const Asset = class {
 	rate: number; // can be positive or negative; negative meaning depreciation
 	value: number;
 	operating_cost: number; //monthly cost if applicable (insurance taxes etc?)
-	constructor(type: string, rate: number, value: number, operating_cost: number) {
-		this.type = type;
+	constructor(
+		type: string = 'stock',
+		rate: number = 0.05,
+		value: number = 0,
+		operating_cost: number = 0
+	) {
+		this.type = type; // stock,
 		this.rate = rate;
 		this.value = value;
 		this.operating_cost = operating_cost;
@@ -125,7 +130,7 @@ export const Asset = class {
 	};
 
 	pay = () => {
-		let a = 1;
+		let a = 1; // dummy
 	}; // since operating cost, won't actually do anything to the value..
 
 	apply_interest = () => {
@@ -165,18 +170,15 @@ export const Debt = class {
 
 	get_payment = (payment: number | null = null) => {
 		// if null, will use min payment..
-		let payment_principle: number;
-		let payment_interest: number;
-		let operating_cost: number;
 
-		operating_cost = this.asset != null ? this.asset.get_payment() : 0;
-
-		// 2% of balance according to nerdwallet - https://www.nerdwallet.com/article/credit-cards/credit-card-issuer-minimum-payment
-		let min_payment = this.type == 'cc' ? 0.02 * this.value : this.min_payment + operating_cost;
+		const payment_interest: number | null =
+			this.get_interest() > payment ? payment : this.get_interest();
+		const operating_cost: number = this.asset != null ? this.asset.get_payment() : 0;
+		const min_payment = this.type == 'cc' ? 0.02 * this.value : this.min_payment + operating_cost;
+		const payment_principle: number = payment - payment_interest - operating_cost;
 		payment = payment == null ? min_payment : payment;
 
-		payment_interest = this.get_interest() > payment ? payment : this.get_interest();
-		payment_principle = payment - payment_interest - operating_cost;
+		// 2% of balance according to nerdwallet - https://www.nerdwallet.com/article/credit-cards/credit-card-issuer-minimum-payment
 		return {
 			interest: payment_interest,
 			principle: payment_principle,

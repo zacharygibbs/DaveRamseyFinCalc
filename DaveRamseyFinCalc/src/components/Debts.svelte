@@ -27,6 +27,8 @@
 				<th>Type</th>
 				<th>Initial Value</th>
 				<th>Interest Rate</th>
+				<th>Min Payment</th>
+				<th>Asset</th>
 				<th>Actions</th>
 			</tr>
 			{#each debtList as debt, i}
@@ -37,6 +39,9 @@
 					<td>{debt.type}</td>
 					<td>{'$' + debt.value.toFixed(2)}</td>
 					<td>{debt.rate * 100 + ' %'}</td>
+					<td>{debt.min_payment}</td>
+					<td>{debt.asset?.type}</td>
+
 					<td>
 						<IconButton
 							class="material-icons"
@@ -68,6 +73,6 @@
 	@import '/_Typography.scss';
 	#debts-container {
 		border-width: 1px;
-		background-color: aquamarine;
+		background-color: gray;
 	}
 </style>

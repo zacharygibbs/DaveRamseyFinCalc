@@ -2,14 +2,13 @@
 	import { onMount } from 'svelte';
 	import { Calculator, Asset, Debt } from '../lib/calculator';
 	import { create_chart } from '../lib/charts';
-	import Slider from '../components/Slider.svelte';
+	//import Slider from '../components/Slider.svelte';
 	import Debts from '../components/Debts.svelte';
+	import Assets from '../components/Assets.svelte';
 
 	onMount(() => {
 		create_chart();
 	});
-
-	1 / 0;
 
 	let debtList = [
 		new Debt('house', 0.0375, 114000, 1100, new Asset('house', +0.01, 200000, 500)),
@@ -69,6 +68,7 @@
 </container>
 
 <Debts {debtList} />
+<Assets {assetList} />
 
 <style>
 	@import '../../static/_Typography.scss';
